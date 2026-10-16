@@ -42,12 +42,10 @@ function changeQuantity(cart, id, quantity) {
     throw new RangeError("Недостаточно товара на складе");
   }
 
-  return cart.map((item) =>
-    item.id === id ? { ...item, quantity } : item,
-  );
+  return cart.map((item) => (item.id === id ? { ...item, quantity } : item));
 }
-function removeFromCart() {
-  return notImplemented();
+function removeFromCart(cart, id) {
+  return cart.filter((item) => item.id !== id);
 }
 function calculateCartSubtotal() {
   return notImplemented();
